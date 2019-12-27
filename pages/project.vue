@@ -46,37 +46,11 @@
 </template>
 
 <script>
-import Project from "~/components/ProjectCard.vue";
 export default {
-  components: {
-    Project
-  }
 };
 </script>
 
 <style lang="css" scoped>
-@media only screen and (max-width: 1264px) {
-  .detailedproject {
-    display: inherit;
-    min-width: 100%;
-  }
-}
-
-@media only screen and (min-width: 1265px) {
-  .detailedproject {
-    display: inline-block;
-    margin-left: 0.9%;
-  }
-}
-
-.detailedproject {
-  margin-bottom: 3vh;
-}
-
-.project {
-  z-index: -1;
-}
-
 .hd {
   position: sticky;
   top: 0;

@@ -43,8 +43,4 @@ export default {
 .projectCard {
   margin-bottom: 3vh;
 }
-
-.project {
-  z-index: -1;
-}
 </style>
