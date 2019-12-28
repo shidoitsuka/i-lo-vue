@@ -1,13 +1,13 @@
 <template lang="html">
   <DetailedProject
     :projectImage="projectImage"
-    projectName="Miku Site"
+    projectName="Electron Kasir"
     projectDate="2019"
-    projectLanguage="HTML, CSS, Javascript, Handlebars, NodeJS, Express"
+    projectLanguage="HTML, CSS, Javascript, JQuery, NodeJS, Electron, JSON"
   >
-    I finally decided to make a website for my lovely discord bot, Miku. The
-    purpose is to let the people over the Internet know that Miku is actually
-    here!
+    Aplikasi ini saya buat untuk teman saya. Berbasis elektron yang
+    multi-platform, yang berarti dapat dijalankan di 3 sistem operasi terkenal
+    yakni Windows, MacOS, dan Linux.
   </DetailedProject>
 </template>
 
@@ -19,13 +19,12 @@ export default {
   },
   data: () => ({
     projectImage: [
-      "https://i.ibb.co/nfnGfpX/image.png",
-      "https://i.ibb.co/s3B0fqp/image.png",
-      "https://i.ibb.co/Q9dTGnm/image.png"
+      "https://i.ibb.co/D7H1bC3/image.png",
+      "https://i.ibb.co/Bjsqvv1/image.png"
     ]
   }),
   mounted() {
-    this.$store.state.ProjectName.name = "Miku Site";
+    this.$store.state.ProjectName.name = "Electron Kasir";
   },
   beforeDestroy() {
     this.$store.state.ProjectName.name = "";

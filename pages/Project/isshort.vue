@@ -1,13 +1,11 @@
 <template lang="html">
   <DetailedProject
     :projectImage="projectImage"
-    projectName="Miku Site"
+    projectName="Isshort"
     projectDate="2019"
-    projectLanguage="HTML, CSS, Javascript, Handlebars, NodeJS, Express"
+    projectLanguage="HTML, CSS, Javascript, Handlebars, NodeJS, Express, JSON"
   >
-    I finally decided to make a website for my lovely discord bot, Miku. The
-    purpose is to let the people over the Internet know that Miku is actually
-    here!
+    A simple link shortener with custom path.
   </DetailedProject>
 </template>
 
@@ -19,13 +17,12 @@ export default {
   },
   data: () => ({
     projectImage: [
-      "https://i.ibb.co/nfnGfpX/image.png",
-      "https://i.ibb.co/s3B0fqp/image.png",
-      "https://i.ibb.co/Q9dTGnm/image.png"
+      "https://i.ibb.co/YdYXyWh/image.png",
+      "https://i.ibb.co/Vv5Dz2b/image.png"
     ]
   }),
   mounted() {
-    this.$store.state.ProjectName.name = "Miku Site";
+    this.$store.state.ProjectName.name = "Isshort";
   },
   beforeDestroy() {
     this.$store.state.ProjectName.name = "";

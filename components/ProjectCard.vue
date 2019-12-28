@@ -7,7 +7,7 @@
         <v-list-item-subtitle>{{ description }}</v-list-item-subtitle>
       </v-list-item-content>
 
-      <v-list-item-avatar tile size="80" color="grey">
+      <v-list-item-avatar size="80">
         <v-img :src="image" />
       </v-list-item-avatar>
     </v-list-item>
@@ -19,7 +19,7 @@
         <v-icon>mdi-crop-landscape</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn :href="github" target="_blank" icon>
+      <v-btn :href="'https://github.com/shidoitsuka/' + github" target="_blank" icon>
         <v-icon>mdi-github-circle</v-icon>
       </v-btn>
       <v-btn :href="url" target="_blank" icon>
@@ -61,7 +61,7 @@ export default {
     },
     image: {
       type: String,
-      default: "https://i.ibb.co/pnqV1Db/image.png"
+      default: "https://i.ibb.co/dKBDgp3/96915.jpg"
     },
     path: {
       type: String,

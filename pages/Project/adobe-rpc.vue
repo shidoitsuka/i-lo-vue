@@ -1,13 +1,11 @@
 <template lang="html">
   <DetailedProject
     :projectImage="projectImage"
-    projectName="Miku Site"
+    projectName="Adobe RPC"
     projectDate="2019"
-    projectLanguage="HTML, CSS, Javascript, Handlebars, NodeJS, Express"
+    projectLanguage="NodeJS, discord.js, discord-rpc"
   >
-    I finally decided to make a website for my lovely discord bot, Miku. The
-    purpose is to let the people over the Internet know that Miku is actually
-    here!
+    A simple adobe apps discord rich presence for discord.
   </DetailedProject>
 </template>
 
@@ -19,13 +17,15 @@ export default {
   },
   data: () => ({
     projectImage: [
-      "https://i.ibb.co/nfnGfpX/image.png",
-      "https://i.ibb.co/s3B0fqp/image.png",
-      "https://i.ibb.co/Q9dTGnm/image.png"
+      "https://i.ibb.co/RDB22Pm/image.png",
+      "https://i.ibb.co/1dNSWXV/image.png",
+      "https://i.ibb.co/Mhgm9j9/image.png",
+      "https://i.ibb.co/g30m940/image.png",
+      "https://i.ibb.co/pP5jkV6/image.png"
     ]
   }),
   mounted() {
-    this.$store.state.ProjectName.name = "Miku Site";
+    this.$store.state.ProjectName.name = "Adobe RPC";
   },
   beforeDestroy() {
     this.$store.state.ProjectName.name = "";
