@@ -77,9 +77,6 @@
 <script>
 import Project from "~/components/ProjectCard.vue";
 export default {
-  data: () => ({
-    isActive: false
-  }),
   components: {
     Project
   }

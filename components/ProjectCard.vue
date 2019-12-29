@@ -19,33 +19,34 @@
         <v-icon>mdi-crop-landscape</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn :href="'https://github.com/shidoitsuka/' + github" target="_blank" icon>
+      <v-btn :href="github != '' ? ('https://github.com/shidoitsuka/' + github) : ''" @click="github == '' ? (githubAlert = !githubAlert) : ''" target="_blank" icon>
         <v-icon>mdi-github-circle</v-icon>
       </v-btn>
-      <v-btn :href="url" target="_blank" icon>
+      <v-btn :href="url != '' ? url : ''" @click="url == '' ? (urlAlert = !urlAlert) : ''" target="_blank" icon>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-card-actions>
-    <!-- <v-snackbar v-model="snackbar">
-      This project has no repository
-      <v-btn color="teal" text @click="snackbar = false">
+    <v-snackbar v-model="urlAlert" right>
+      This project has no external url
+      <v-btn color="teal" text @click="urlAlert = !urlAlert">
         Close
       </v-btn>
-    </v-snackbar> -->
+    </v-snackbar>
+    <v-snackbar v-model="githubAlert" right>
+      This project has no repository
+      <v-btn color="teal" text @click="githubAlert = !githubAlert">
+        Close
+      </v-btn>
+    </v-snackbar>
   </v-card>
 </template>
 
 <script>
 export default {
-  // TODO: show snackbar when github is not defined
-  /*data: () => ({
-    methods: {
-      snackbar: false
-    },
-    github() {
-      this.snackbar: false
-    }
-  }),*/
+  data: () => ({
+    urlAlert: false,
+    githubAlert: false
+  }),
   props: {
     tags: {
       type: String,
@@ -69,11 +70,11 @@ export default {
     },
     github: {
       type: String,
-      default: "https://github.com/shidoitsuka"
+      default: ""
     },
     url: {
       type: String,
-      default: "null"
+      default: ""
     }
   }
 };
