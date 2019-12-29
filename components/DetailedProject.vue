@@ -19,7 +19,7 @@
               />
             </v-carousel>
           </v-col>
-          <v-col xs="12" md="8">
+          <v-col cols="12" md="8">
             <h1 class="font-weight-light projectName">{{ projectName }}</h1>
             <div class="projectSpecs">
               <!-- prettier-ignore -->
