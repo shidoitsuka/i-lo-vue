@@ -1,7 +1,6 @@
 <template lang="html">
   <DetailedProject
-    :projectImage="projectImage"
-    projectName="Electron Kasir"
+    projectName="React Native Kasir"
     projectDate="2018 - 2019"
     projectLanguage="JSX, React Native"
   >
@@ -17,9 +16,8 @@ export default {
   components: {
     DetailedProject
   },
-  data: () => ({}),
   mounted() {
-    this.$store.state.ProjectName.name = "Electron Kasir";
+    this.$store.state.ProjectName.name = "React Native Kasir";
   },
   beforeDestroy() {
     this.$store.state.ProjectName.name = "";
