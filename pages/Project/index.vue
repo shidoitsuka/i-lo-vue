@@ -31,18 +31,19 @@
       url="https://standinshd.site"
     />
     <Project
-    class="projectCard"
-    tags="html, css, javascript, handlebars, nodejs, express, json"
-    name="isshort"
-    description="Another basic link shortener app"
-    image="https://i.ibb.co/1nrFZ5c/custom-trackable-short-url-feature.png"
-    path="isshort"
+      class="projectCard"
+      tags="html, css, javascript, handlebars, nodejs, express, json"
+      name="isshort"
+      description="Another basic link shortener app"
+      image="https://i.ibb.co/1nrFZ5c/custom-trackable-short-url-feature.png"
+      path="isshort"
+      url="https://isshort.tk"
     />
     <Project
       class="projectCard"
       tags="nodejs, discord.js, discord-rpc"
       name="Adobe RPC"
-      description="This website"
+      description="Discord Rich Presence for adobe apps"
       image="https://i.ibb.co/Stw8FHb/218-2180844-adobe-wallpapers-full-hd.jpg"
       path="adobe-rpc"
       github="adobe-rpc"
@@ -57,12 +58,12 @@
       github="masterBarang"
     />
     <Project
-    class="projectCard"
-    tags="html, css, javascript, jquery, nodejs, electron, json"
-    name="Electron Kasir"
-    description="Aplikasi kasir dengan target multi-platform"
-    path="electron-kasir"
-    github="electron-kasir"
+      class="projectCard"
+      tags="html, css, javascript, jquery, nodejs, electron, json"
+      name="Electron Kasir"
+      description="Aplikasi kasir dengan target multi-platform"
+      path="electron-kasir"
+      github="electron-kasir"
     />
     <Project
       class="projectCard"
@@ -79,6 +80,19 @@ import Project from "~/components/ProjectCard.vue";
 export default {
   components: {
     Project
+  },
+  head() {
+    return {
+      title: "Project",
+      // opengraphs
+      // prettier-ignore
+      meta: [
+        { hid: 'description', name: 'description', content: 'Project Showcase' },
+        { hid: 'og:title', property: 'og:title', content: 'standinshd' },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:image', property: 'og:image', content: 'https://i.ibb.co/HDtnrQ0/Miku-Chibi0.png' }
+      ]
+    };
   }
 };
 </script>
