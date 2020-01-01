@@ -1,70 +1,61 @@
 <template>
-<v-app>
-  <v-card class="mx-auto card" :loading="loading" raised>
-    <v-card-text>
-      <div>In Progress</div>
-      <p v-html="bigtext" class="display-1 text--primary"></p>
-      <div v-html="smalltext" class="text--primary"></div>
-    </v-card-text>
-    <v-divider></v-divider>
-    <v-card-actions>
-      <v-btn icon to="/">
-        <v-icon>mdi-home</v-icon>
-      </v-btn>
-      <v-btn icon @click="refresh()">
-        <v-icon>mdi-refresh</v-icon>
-      </v-btn>
-    </v-card-actions>
-  </v-card>
-</v-app>
+  <v-app>
+    <v-timeline class="px-5">
+      <v-timeline-item color="teal" small>
+        <template v-slot:opposite>
+          <span class="headline font-weight-bold teal--text">2020</span>
+        </template>
+        <div class="py-4">
+          <h2 class="headline font-weight-light mb-4 teal--text">
+            Lorem ipsum
+          </h2>
+          <div>
+            Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola
+            imperdiet nec ut, sed euismod convenire principes at. Est et nobis
+            iisque percipit, an vim zril disputando voluptatibus, vix an
+            salutandi sententiae.
+          </div>
+        </div>
+      </v-timeline-item>
+      <v-timeline-item color="teal" small>
+        <template v-slot:opposite>
+          <span class="headline font-weight-bold teal--text">2020</span>
+        </template>
+        <div class="py-4">
+          <h2 class="headline font-weight-light mb-4 teal--text">
+            Lorem ipsum
+          </h2>
+          <div>
+            Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola
+            imperdiet nec ut, sed euismod convenire principes at. Est et nobis
+            iisque percipit, an vim zril disputando voluptatibus, vix an
+            salutandi sententiae.
+          </div>
+        </div>
+      </v-timeline-item>
+    </v-timeline>
+  </v-app>
 </template>
 
 <script type="text/javascript">
 export default {
-  data: () => ({
-    bigtext: null,
-    smalltext: null,
-    loading: true,
-    words: {
-      "your mom": "gay",
-      "proh•grah•mmer": "Someone that can turns a coffee and pizza into an application",
-      standinshd: "is awesome!",
-      "I'm  still working on this!": "Please try again later",
-      "Come back later!": "I do hope you found something good.",
-      "Click refresh icon!": "and see the magic.",
-      PANSYYYYYY: "protecc her smile dude.",
-      "go home": "I mean click the home icon"
-    }
-  }),
-  methods: {
-    refresh() {
-      const words = this.words;
-      const allWords = Object.keys(words);
-      const size = Object.keys(words).length;
-      const randomed = allWords[Math.floor(Math.random() * allWords.length)];
-      this.bigtext = randomed;
-      this.smalltext = words[randomed];
-      return;
-    }
-  },
-  mounted() {
-    this.refresh();
+  head() {
+    return {
+      title: "Profile",
+      // opengraphs
+      // prettier-ignore
+      meta: [
+        { hid: 'description', name: 'description', content: 'Profile' },
+        { hid: 'og:title', property: 'og:title', content: 'standinshd' },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:image', property: 'og:image', content: 'https://i.ibb.co/HDtnrQ0/Miku-Chibi0.png' }
+      ]
+    };
   }
 };
 </script>
 
 <style scoped>
 @media only screen and (max-width: 900px) {
-  .card {
-    width: 90vw;
-    top: 50%;
-    margin-top: -20%;
-  }
-}
-
-.card {
-  min-width: 50vw;
-  top: 50%;
-  margin-top: -10%;
 }
 </style>
