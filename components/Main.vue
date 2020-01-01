@@ -2,8 +2,8 @@
   <v-app class="app">
     <v-parallax
       dark
-      class="parallax"
       height="100%"
+      class="parallax"
       src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
     >
       <v-card
@@ -44,16 +44,20 @@
         <v-divider></v-divider>
         <v-row class="socialmedia">
           <v-col cols="12">
-            <v-btn icon>
+            <v-btn
+              href="https://fb.me/OfficialUltimateOtaku"
+              target="_blank"
+              icon
+            >
               <v-icon>mdi-facebook</v-icon>
             </v-btn>
             <v-btn icon>
               <v-icon>mdi-discord</v-icon>
             </v-btn>
-            <v-btn icon>
+            <v-btn href="https://github.com/shidoitsuka" target="_blank" icon>
               <v-icon>mdi-github-circle</v-icon>
             </v-btn>
-            <v-btn icon>
+            <v-btn href="https://blog.standinshd.site" target="_blank" icon>
               <v-icon>mdi-post</v-icon>
             </v-btn>
           </v-col>
@@ -80,14 +84,22 @@ export default {};
   .app .parallax {
     height: 100%;
   }
+
+  .card {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .card {
+    position: absolute;
+    left: 15vw;
+  }
 }
 
 .headtext {
   margin-top: 5vh;
-}
-
-.card {
-  position: absolute;
-  left: 15vw;
 }
 </style>
