@@ -3,7 +3,7 @@ module.exports = {
   /*
    ** Headers of the page
    */
-  ...head: {
+  head: {
     title: "standinshd",
     meta: [
       { charset: "utf-8" },
