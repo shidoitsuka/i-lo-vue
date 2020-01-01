@@ -83,14 +83,16 @@ export default {
   },
   head() {
     return {
-      title: "Project",
       // opengraphs
       // prettier-ignore
       meta: [
-        { hid: 'description', name: 'description', content: 'Project Showcase' },
-        { hid: 'og:title', property: 'og:title', content: 'standinshd' },
-        { hid: 'og:type', property: 'og:type', content: 'website' },
-        { hid: 'og:image', property: 'og:image', content: 'https://i.ibb.co/HDtnrQ0/Miku-Chibi0.png' }
+        { hid: 'description', name: 'og:description', content: 'Project Showcase' },
+        { hid: 'og:description', name: 'og:description', content: 'Project Showcase' },
+        { hid: 'og:title', name: 'og:title', content: 'standinshd' },
+        { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: 'standinshd' },
+        { hid: 'og:type', name: 'og:type', content: 'website' },
+        { hid: 'og:site_name', name: 'og:site_name', content: 'standinshd' },
+        { hid: 'og:image', name: 'og:image', content: 'https://i.ibb.co/HDtnrQ0/Miku-Chibi0.png' }
       ]
     };
   }
