@@ -87,11 +87,11 @@ export default {
       // prettier-ignore
       meta: [
         { hid: 'description', name: 'description', property: 'og:description', content: 'Project Showcase' },
-        { hid: 'og:description', name: 'og:description', property: 'og:description', content: 'Project Showcase' },
-        { hid: 'og:title', name: 'og:title', property: 'og:title', content: 'standinshd' },
-        { hid: 'og:type', name: 'og:type', property: 'og:type', content: 'website' },
-        { hid: 'og:site_property', name: 'og:site_property', property: 'og:site_property', content: 'standinshd' },
-        { hid: 'og:image', name: 'og:image', property: 'og:image', content: 'https://i.ibb.co/HDtnrQ0/Miku-Chibi0.png' },
+        { hid: 'og:description', property: 'og:description', content: 'Project Showcase' },
+        { hid: 'og:title', property: 'og:title', content: 'standinshd' },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:site_property', property: 'og:site_property', content: 'standinshd' },
+        { hid: 'og:image', property: 'og:image', content: 'https://i.ibb.co/HDtnrQ0/Miku-Chibi0.png' },
         { hid: 'apple-mobile-web-app-title', property: 'apple-mobile-web-app-title', content: 'standinshd' }
       ]
     };
