@@ -8,7 +8,7 @@
         flat
         height="500px"
         tile
-        src="bg.png"
+        src="/bg.png"
       />
 
       <v-card class="mx-auto" max-width="90vw" style="margin-top: -10vh;">
