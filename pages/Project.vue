@@ -8,7 +8,7 @@
         flat
         height="500px"
         tile
-        src="https://i.ibb.co/pj3g5dW/codepen1080.png"
+        src="bg.png"
       />
 
       <v-card class="mx-auto" max-width="90vw" style="margin-top: -10vh;">
@@ -46,41 +46,7 @@
 </template>
 
 <script>
-export default {
-  // TODO: meta tags
-  /*head() {
-    return {
-      title: "Project Showcase",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: "standinshd's project showcase"
-        },
-        {
-          name: "og:title",
-          content: "standinshd"
-        },
-        {
-          name: "og:type",
-          content: "website"
-        },
-        {
-          name: "og:description",
-          content: "standinshd's project showcase"
-        },
-        {
-          name: "og:image",
-          content: "standinshd's project showcase"
-        },
-        {
-          name: "og:description",
-          content: "standinshd's project showcase"
-        },
-      ]
-    };
-  }*/
-};
+export default {};
 </script>
 
 <style lang="css" scoped>
