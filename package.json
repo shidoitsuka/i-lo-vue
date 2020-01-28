@@ -1,7 +1,7 @@
 {
-  "name": "standinshd-nuxt",
+  "name": "i-lo-vue",
   "version": "1.0.0",
-  "description": "my site based on vue-nuxt",
+  "description": "My open-sourced personal portofolio website",
   "author": "shidoitsuka",
   "private": true,
   "scripts": {

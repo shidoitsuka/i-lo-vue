@@ -20,7 +20,7 @@
             <div v-else>
               <!-- prettier-ignore -->
               <v-toolbar-title class="grey--text">
-                <NuxtLink to="/project" icon>
+                <NuxtLink to="/project">
                   <v-icon>mdi-arrow-left</v-icon>
                 </NuxtLink>
                 {{ $store.state.ProjectName.name }}
@@ -46,7 +46,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  transition: {
+    enter() {
+      console.log("before");
+    }
+  }
+};
 </script>
 
 <style lang="css" scoped>

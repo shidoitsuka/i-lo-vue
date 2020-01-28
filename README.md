@@ -1,6 +1,6 @@
-# standinshd-site
+# i-lo-vue
 
-> My site based on nuxtjs
+> My open-sourced personal portofolio website
 
 ## Build Setup
 

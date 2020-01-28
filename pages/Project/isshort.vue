@@ -12,6 +12,9 @@
 <script>
 import DetailedProject from "~/components/DetailedProject.vue";
 export default {
+  transition: {
+    name: "scale-transition"
+  },
   components: {
     DetailedProject
   },
