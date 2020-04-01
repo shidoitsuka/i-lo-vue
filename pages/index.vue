@@ -1,14 +1,11 @@
 <template>
-  <v-content>
-    <Main />
-  </v-content>
+  <v-layout column justify-center align-center>
+    <v-flex xs12 sm8 md6>
+      <h1>test</h1>
+    </v-flex>
+  </v-layout>
 </template>
 
-<script type="text/javascript">
-import Main from "~/components/Main.vue";
-export default {
-  components: {
-    Main
-  }
-};
+<script>
+export default {};
 </script>

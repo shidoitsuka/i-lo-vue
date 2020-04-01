@@ -1,18 +1,21 @@
-module.exports = {
-  mode: "spa",
+import colors from "vuetify/es5/util/colors";
+
+export default {
+  mode: "universal",
   /*
    ** Headers of the page
    */
-  // prettier-ignore
   head: {
-    title: "standinshd",
+    titleTemplate: "%s - " + process.env.npm_package_name,
+    title: process.env.npm_package_name || "",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { property: "fb:app_id", content: "613242665883559" },
-      { hid: "description", name: "description", content: "Just another human that fell in love too much with </code>" },
-      { hid: "og:image", property: "og:image", content: "https://i.ibb.co/5LdywPX/6017da3ed8f203fe979b16dae1ad2259.png" },
-      { hid: "apple-mobile-web-app-title", property: "apple-mobile-web-app-title", content: "standinshd" }
+      {
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
+      }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
@@ -27,7 +30,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/vue-particles.js", "~/plugins/vue-typed.js"],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
@@ -35,11 +38,40 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa"],
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    "@nuxtjs/axios",
+    "@nuxtjs/pwa"
+  ],
   /*
-   ** Build configuration  */
-  // server: {},
-
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {},
+  /*
+   ** vuetify module configuration
+   ** https://github.com/nuxt-community/vuetify-module
+   */
+  vuetify: {
+    customVariables: ["~/assets/variables.scss"],
+    theme: {
+      dark: false,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
+  },
+  /*
+   ** Build configuration
+   */
   build: {
     /*
      ** You can extend webpack config here
