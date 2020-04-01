@@ -1,7 +1,7 @@
 <template>
-<v-content>
-  <Main />
-</v-content>
+  <v-content>
+    <Main />
+  </v-content>
 </template>
 
 <script type="text/javascript">

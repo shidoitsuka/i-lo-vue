@@ -8,7 +8,7 @@
         flat
         height="500px"
         tile
-        src="https://i.picsum.photos/id/100/2500/1656.jpg"
+        src="/bg.png"
       />
 
       <v-card class="mx-auto" max-width="90vw" style="margin-top: -10vh;">
@@ -20,7 +20,7 @@
             <div v-else>
               <!-- prettier-ignore -->
               <v-toolbar-title class="grey--text">
-                <NuxtLink to="/project" icon>
+                <NuxtLink to="/project">
                   <v-icon>mdi-arrow-left</v-icon>
                 </NuxtLink>
                 {{ $store.state.ProjectName.name }}
@@ -47,6 +47,11 @@
 
 <script>
 export default {
+  transition: {
+    enter() {
+      console.log("before");
+    }
+  }
 };
 </script>
 
