@@ -6,7 +6,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
 *.lock
+package-lock.json
 
 # Runtime data
 pids
@@ -84,7 +86,7 @@ dist
 # Service worker
 sw.*
 
-# macOS
+# Mac OSX
 .DS_Store
 
 # Vim swap files
