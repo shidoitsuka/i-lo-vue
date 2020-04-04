@@ -55,7 +55,7 @@ export default {
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -68,6 +68,10 @@ export default {
         }
       }
     }
+  },
+  server: {
+    port: 3000, // default: 3000
+    // host: "192.168.0.105" // default: localhost
   },
   /*
    ** Build configuration
