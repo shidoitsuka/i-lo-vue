@@ -30,7 +30,7 @@
       </v-row>
     </div>
     <div class="break"></div>
-    <no-ssr>
+    <client-only>
     <div class="section">
       <v-row>
         <v-col v-if="mobile">
@@ -48,7 +48,7 @@
         </v-col>
       </v-row>
     </div>
-    </no-ssr>
+  </client-only>
     <div class="break"></div>
     <div class="section-full">
       <v-row>
@@ -146,12 +146,6 @@ export default {
 <style lang="scss" src="~/assets/scss/headerImages.scss" scoped></style>
 <style lang="scss" src="~/assets/scss/textGlitch.scss" scoped></style>
 <style lang="scss" scoped>
-// importing fonts
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,700;1,300&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap&family=Do+Hyeon&display=swap");
-html, body {
-  overflow: hidden;
-}
-
 /* header */
 .background-image {
   max-width: 100%;
