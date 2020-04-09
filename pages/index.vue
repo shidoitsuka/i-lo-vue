@@ -31,102 +31,111 @@
     </div>
     <div class="break"></div>
     <client-only>
-    <div class="section">
-      <v-row>
-        <v-col v-if="mobile">
-          <v-img src="https://picsum.photos/200/200" class="img" />
-        </v-col>
-        <v-col cols="12" md="9">
-          <h1 class="section-text">Experience</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </v-col>
-        <v-col v-if="!mobile">
-          <v-img src="https://picsum.photos/200/200" class="img" />
-        </v-col>
-      </v-row>
-    </div>
-  </client-only>
+      <div class="section">
+        <v-row>
+          <v-col v-if="mobile">
+            <v-img src="https://picsum.photos/200/200" class="img" />
+          </v-col>
+          <v-col cols="12" md="9">
+            <h1 class="section-text">Experience</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </v-col>
+          <v-col v-if="!mobile">
+            <v-img src="https://picsum.photos/200/200" class="img" />
+          </v-col>
+        </v-row>
+      </div>
+    </client-only>
     <div class="break"></div>
-    <div class="section-full">
-      <v-row>
-        <v-col cols="12">
-          <h1 class="section-text">My Projects</h1>
-        </v-col>
-        <v-col cols="12">
-          <v-slide-group v-model="model" class="pa-4" center-active show-arrows>
-            <v-slide-item
-              v-for="n in projects.length"
-              :key="n"
-              v-slot:default="{ active, toggle }"
+    <client-only>
+      <div class="section-full">
+        <v-row>
+          <v-col cols="12">
+            <h1 class="section-text">My Projects</h1>
+          </v-col>
+          <v-col cols="12">
+            <v-slide-group
+              v-model="model"
+              class="pa-4"
+              center-active
+              show-arrows
             >
-              <v-card
-                :color="active ? 'grey darken-3' : ''"
-                class="ma-4"
-                height="350"
-                width="250"
-                @click="toggle"
+              <v-slide-item
+                v-for="n in projects.length"
+                :key="n"
+                v-slot:default="{ active, toggle }"
               >
-                <!-- prettier-ignore -->
-                <v-img
+                <v-card
+                  :color="active ? 'grey darken-3' : ''"
+                  class="ma-4"
+                  height="350"
+                  width="250"
+                  @click="toggle"
+                >
+                  <!-- prettier-ignore -->
+                  <v-img
                   :src="require('assets/img/projectThumbs/' + projects[n - 1].thumb)"
                   width="100%"
                   height="100%"
                   :style="active ? 'filter: brightness(110%);' : ''"
                 />
-                <v-row class="fill-height" align="center" justify="center">
-                  <v-scale-transition>
-                    <v-icon
-                      v-if="active"
-                      color="white"
-                      size="48"
-                      v-text="'mdi-close-octagon-outline'"
-                    ></v-icon>
-                  </v-scale-transition>
+                  <v-row class="fill-height" align="center" justify="center">
+                    <v-scale-transition>
+                      <v-icon
+                        v-if="active"
+                        color="white"
+                        size="48"
+                        v-text="'mdi-close-octagon-outline'"
+                      ></v-icon>
+                    </v-scale-transition>
+                  </v-row>
+                </v-card>
+              </v-slide-item>
+            </v-slide-group>
+            <v-expand-transition>
+              <v-sheet v-if="model != null" max-height="700" tile>
+                <v-row class="project-container">
+                  <v-col cols="12">
+                    <h3 class="project-title">{{ projects[model].name }}</h3>
+                    <p class="project-subtitle">
+                      {{ projects[model].subtitle }}
+                    </p>
+                    <v-divider class="project-divider"></v-divider>
+                    <p class="project-description">
+                      {{ projects[model].description }}
+                    </p>
+                    <div class="project-specs">
+                      <table>
+                        <tr>
+                          <td>Language</td>
+                          <td align="center">:</td>
+                          <td>{{ projects[model].language }}</td>
+                        </tr>
+                        <tr>
+                          <td>Frameworks</td>
+                          <td align="center">:</td>
+                          <td>{{ projects[model].frameworks }}</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <p class="project-description">You can also find it on :</p>
+                    <v-btn icon to="/" class="project-links">
+                      <v-icon>mdi-link-variant</v-icon>
+                    </v-btn>
+                    <v-btn icon to="/" class="project-links">
+                      <v-icon>mdi-github</v-icon>
+                    </v-btn>
+                  </v-col>
                 </v-row>
-              </v-card>
-            </v-slide-item>
-          </v-slide-group>
-          <v-expand-transition>
-            <v-sheet v-if="model != null" max-height="700" tile>
-              <v-row class="project-container">
-                <v-col cols="12">
-                  <h3 class="project-title">{{ projects[model].name }}</h3>
-                  <p class="project-subtitle">{{ projects[model].subtitle }}</p>
-                  <v-divider class="project-divider"></v-divider>
-                  <p class="project-description">
-                    {{ projects[model].description }}
-                  </p>
-                  <div class="project-specs">
-                    <table>
-                      <tr>
-                        <td>Language</td>
-                        <td align="center">:</td>
-                        <td>{{ projects[model].language }}</td>
-                      </tr>
-                      <tr>
-                        <td>Frameworks</td>
-                        <td align="center">:</td>
-                        <td>{{ projects[model].frameworks }}</td>
-                      </tr>
-                    </table>
-                  </div>
-                  <p class="project-description">You can also find it on :</p>
-                  <v-btn icon to="/" class="project-links">
-                    <v-icon>mdi-link-variant</v-icon>
-                  </v-btn>
-                  <v-btn icon to="/" class="project-links">
-                    <v-icon>mdi-github</v-icon>
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-sheet>
-          </v-expand-transition>
-        </v-col>
-      </v-row>
-    </div>
+              </v-sheet>
+            </v-expand-transition>
+          </v-col>
+        </v-row>
+      </div>
+    </client-only>
   </div>
 </template>
 
@@ -139,6 +148,9 @@ export default {
       model: null,
       projects: proj
     };
+  },
+  head() {
+    return { title: "Brian Harianja - Full-stack developer from Sidoarjo." };
   }
 };
 </script>
@@ -176,7 +188,8 @@ export default {
   min-height: 98vh;
 }
 .section-text {
-  font-family: "Comic Neue", cursive;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -185,8 +198,8 @@ export default {
   padding: 1.5rem;
 }
 .project-title {
-  font-family: "Comic Neue", cursive;
-  font-size: 1.7rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 .project-subtitle {
@@ -212,8 +225,8 @@ table {
 // globals
 p,
 table {
-  font-family: "Comic Neue", cursive;
-  font-weight: lighter;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: medium;
 }
 .img {
   height: 45vh;
