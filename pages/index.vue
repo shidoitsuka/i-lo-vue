@@ -1,11 +1,5 @@
 <template>
   <div>
-    <div v-for="i in 22" :key="i">
-      <img
-        :src="require('assets/img/icons/' + i + '.svg')"
-        :class="'img' + i"
-      />
-    </div>
     <div class="main">
       <h1 class="main-text glitch" data-text="standinshd">standinshd</h1>
       <h4
@@ -15,6 +9,12 @@
         Trying to do everything I could.
       </h4>
     </div>
+    <!-- <div class="background-image" v-for="i in 22" :key="i">
+      <img
+        :src="require('assets/img/icons/' + i + '.svg')"
+        :class="'img' + i"
+      />
+    </div> -->
     <div class="section">
       <v-row>
         <v-col cols="12" md="3">
@@ -30,6 +30,7 @@
       </v-row>
     </div>
     <div class="break"></div>
+    <no-ssr>
     <div class="section">
       <v-row>
         <v-col v-if="mobile">
@@ -47,6 +48,7 @@
         </v-col>
       </v-row>
     </div>
+    </no-ssr>
     <div class="break"></div>
     <div class="section-full">
       <v-row>
@@ -146,8 +148,16 @@ export default {
 <style lang="scss" scoped>
 // importing fonts
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,700;1,300&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap&family=Do+Hyeon&display=swap");
+html, body {
+  overflow: hidden;
+}
 
 /* header */
+.background-image {
+  max-width: 100%;
+  max-height: 100%;
+  z-index: -1;
+}
 .main {
   height: 100vh;
   display: flex;
