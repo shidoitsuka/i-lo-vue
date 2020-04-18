@@ -60,6 +60,7 @@
             <v-slide-group
               v-model="model"
               class="pa-4"
+              mobile-break-point="800"
               center-active
               show-arrows
             >
@@ -99,35 +100,41 @@
               <v-sheet v-if="model != null" max-height="700" tile>
                 <v-row class="project-container">
                   <v-col cols="12">
-                    <h3 class="project-title">{{ projects[model].name }}</h3>
-                    <p class="project-subtitle">
-                      {{ projects[model].subtitle }}
-                    </p>
+                    <div class="project-title-container">
+                      <h3 class="project-title">
+                        {{ projects[model].name }}
+                        <span class="project-subtitle">
+                          {{ projects[model].subtitle }}
+                        </span>
+                      </h3>
+                    </div>
                     <v-divider class="project-divider"></v-divider>
                     <p class="project-description">
                       {{ projects[model].description }}
                     </p>
-                    <div class="project-specs">
-                      <table>
-                        <tr>
-                          <td>Language</td>
-                          <td align="center">:</td>
-                          <td>{{ projects[model].language }}</td>
-                        </tr>
-                        <tr>
-                          <td>Frameworks</td>
-                          <td align="center">:</td>
-                          <td>{{ projects[model].frameworks }}</td>
-                        </tr>
-                      </table>
-                    </div>
-                    <p class="project-description">You can also find it on :</p>
-                    <v-btn icon to="/" class="project-links">
-                      <v-icon>mdi-link-variant</v-icon>
-                    </v-btn>
-                    <v-btn icon to="/" class="project-links">
-                      <v-icon>mdi-github</v-icon>
-                    </v-btn>
+                    <v-divider />
+                    <v-row class="project-specs">
+                      <v-col cols="6">
+                        <p>Engines :</p>
+                        <div v-for="a in projects[model].engines.length" :key="a">
+                          <!-- prettier-ignore -->
+                          <v-btn to="/" icon class="project-engines">
+                            <i :class="'devicon-'+projects[model].engines[a-1]"></i>
+                          </v-btn>
+                        </div>
+                      </v-col>
+                      <v-col cols="6">
+                        <p>
+                          More :
+                        </p>
+                        <v-btn icon to="/" class="project-links">
+                          <v-icon>mdi-link-variant</v-icon>
+                        </v-btn>
+                        <v-btn icon to="/" class="project-links">
+                          <v-icon>mdi-github</v-icon>
+                        </v-btn>
+                      </v-col>
+                    </v-row>
                   </v-col>
                 </v-row>
               </v-sheet>
@@ -158,6 +165,9 @@ export default {
 <style lang="scss" src="~/assets/scss/headerImages.scss" scoped></style>
 <style lang="scss" src="~/assets/scss/textGlitch.scss" scoped></style>
 <style lang="scss" scoped>
+.project-engines i {
+  font-size: 21px;
+}
 /* header */
 .background-image {
   max-width: 100%;
@@ -188,7 +198,7 @@ export default {
   min-height: 98vh;
 }
 .section-text {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -197,36 +207,39 @@ export default {
 .project-container {
   padding: 1.5rem;
 }
+.project-title-container {
+  margin-bottom: 1em;
+}
 .project-title {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
 }
 .project-subtitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  font-weight: 100;
+  font-size: 12px;
+  font-weight: normal;
 }
 .project-description {
   padding: 10px 0px 0px 0px;
+  font-weight: 200;
 }
 .project-specs {
-  border: 1px solid white;
-  margin: 5px;
+  margin: 5px 0px 0px 0px;
   padding: 5px;
+}
+.project-engines {
+  float: left;
+  margin: 0px 10px 10px 0px;
 }
 .project-links {
   margin-right: 10px;
 }
-table {
-  font-size: 0.9rem;
-}
 
 // globals
-p,
-table {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: medium;
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
 }
 .img {
   height: 45vh;
