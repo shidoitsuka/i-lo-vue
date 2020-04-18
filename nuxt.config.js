@@ -16,7 +16,8 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans:wght@500;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" }
+      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans:wght@500;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" },
+      { rel: 'stylesheet', href: "https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" }
     ]
   },
   /*
