@@ -116,8 +116,8 @@
                     <v-row class="project-specs">
                       <v-col cols="6">
                         <p>Engines :</p>
+                        <!-- prettier-ignore -->
                         <div v-for="a in projects[model].engines.length" :key="a">
-                          <!-- prettier-ignore -->
                           <v-btn to="/" icon class="project-engines">
                             <i :class="'devicon-'+projects[model].engines[a-1]"></i>
                           </v-btn>
@@ -157,7 +157,7 @@ export default {
     };
   },
   head() {
-    return { title: "Brian Harianja - Full-stack developer from Sidoarjo." };
+    return { title: "Brian Harianja - full-stack developer from Sidoarjo." };
   }
 };
 </script>
@@ -165,9 +165,6 @@ export default {
 <style lang="scss" src="~/assets/scss/headerImages.scss" scoped></style>
 <style lang="scss" src="~/assets/scss/textGlitch.scss" scoped></style>
 <style lang="scss" scoped>
-.project-engines i {
-  font-size: 21px;
-}
 /* header */
 .background-image {
   max-width: 100%;
@@ -221,16 +218,16 @@ export default {
   font-weight: normal;
 }
 .project-description {
-  padding: 10px 0px 0px 0px;
+  padding: 10px 0 0 0;
   font-weight: 200;
 }
 .project-specs {
-  margin: 5px 0px 0px 0px;
+  margin: 5px 0 0 0;
   padding: 5px;
 }
 .project-engines {
   float: left;
-  margin: 0px 10px 10px 0px;
+  margin: 0 10px 10px 0;
 }
 .project-links {
   margin-right: 10px;
@@ -240,6 +237,9 @@ export default {
 p {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
+}
+.project-engines i {
+  font-size: 21px;
 }
 .img {
   height: 45vh;
