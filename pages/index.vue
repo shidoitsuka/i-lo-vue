@@ -3,7 +3,7 @@
     <div class="main-container">
       <div class="main-image-container">
         <img class="main-background" src="~/assets/img/background.svg" />
-        <img class="main-photo" src="~/assets/img/me.jpg" />
+        <img class="main-photo" src="~/assets/img/me.svg" />
       </div>
       <v-row class="main-text-container">
         <v-col cols="12" offset-md="8">
@@ -221,9 +221,6 @@ export default {
       model: null,
       projects: proj
     };
-  },
-  head() {
-    return { title: "Brian Harianja - full-stack developer from Sidoarjo." };
   }
 };
 </script>
@@ -252,7 +249,7 @@ export default {
   z-index: 0;
   width: 70%;
   height: auto;
-  filter: grayscale(100%) brightness(70%);
+  filter: brightness(70%);
 }
 .main-background {
   position: absolute;

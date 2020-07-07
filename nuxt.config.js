@@ -8,11 +8,13 @@ export default {
   // prettier-ignore
   head: {
     // titleTemplate: "%s - " + process.env.npm_package_name,
-    title: process.env.npm_package_name || "",
+    title: "Brian Harianja - Trying to do everything I could.",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { hid: "description", name: "description", content: process.env.npm_package_description || "" }
+      { hid: "description", name: "description", content: "Hi, I'm Brian. A full-stack developer from Sidoarjo!" },
+      { hid: "og:description", name: "og:description", content: "Hi, I'm Brian. A full-stack developer from Sidoarjo!" },
+      { hid: "og:title", name: "og:title", content: "Brian Harianja" }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -72,7 +74,7 @@ export default {
   },
   server: {
     port: "3000",
-    host: "192.168.43.184" // default: localhost
+    host: "192.168.0.105" // default: localhost
   },
   /*
    ** Build configuration
