@@ -40,7 +40,7 @@
             learn new things even though it's not about tech. In short, I'm just
             trying to do everything I could!
           </p>
-          <v-btn>
+          <v-btn href="https://drive.google.com/file/d/1Liy9MUsT9HCDdG49JJ86_kXnUBTAFatX/view?usp=sharing" target="_blank">
             <v-icon left size="1.3rem">mdi-note-outline</v-icon> Download CV
           </v-btn>
         </v-col>
@@ -127,7 +127,7 @@
           <v-slide-group
             v-model="model"
             class="pa-4"
-            mobile-break-point="800"
+            mobile-breakpoint="800"
             center-active
             show-arrows
           >
@@ -365,16 +365,17 @@ p {
     position: absolute;
     z-index: 0;
     width: auto;
-    height: 45vh;
+    height: 55vh;
     filter: grayscale(100%) brightness(70%);
   }
   .main-background {
     position: absolute;
-    bottom: 0;
+    bottom: -20vh;
     z-index: 1;
     height: 85vh;
     width: auto;
-    transform: rotate(90deg);
+    transform: scale(3, 2) rotate(90deg);
+    filter: brightness(150%);
   }
   .main-text-container {
     z-index: 2;
