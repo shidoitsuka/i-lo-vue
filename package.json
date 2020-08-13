@@ -1,25 +1,23 @@
 {
-  "name": "i-love-vue2",
+  "name": "i-lo-vue",
   "version": "1.0.0",
-  "description": "Remake of I-Lo-Vue",
-  "author": "Brian",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "klaw": "^3.0.0",
-    "nuxt": "^2.0.0",
-    "vue-typed-js": "^0.1.2"
+    "nuxt": "^2.14.0"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.0.0",
-    "node-sass": "^4.13.1",
-    "sass-loader": "^8.0.2"
+    "@nuxtjs/vuetify": "^1.11.2",
+    "@vue/test-utils": "^1.0.3",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^26.1.0",
+    "jest": "^26.1.0",
+    "vue-jest": "^3.0.4"
   }
 }

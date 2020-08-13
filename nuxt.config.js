@@ -1,62 +1,65 @@
-import colors from "vuetify/es5/util/colors";
+import colors from 'vuetify/es5/util/colors'
 
 export default {
-  mode: "universal",
   /*
-   ** Headers of the page
-   */
-  // prettier-ignore
+  ** Nuxt rendering mode
+  ** See https://nuxtjs.org/api/configuration-mode
+  */
+  mode: 'universal',
+  /*
+  ** Nuxt target
+  ** See https://nuxtjs.org/api/configuration-target
+  */
+  target: 'server',
+  /*
+  ** Headers of the page
+  ** See https://nuxtjs.org/api/configuration-head
+  */
   head: {
-    // titleTemplate: "%s - " + process.env.npm_package_name,
-    title: "Brian Harianja - Trying to do everything I could.",
+    titleTemplate: '%s - ' + process.env.npm_package_name,
+    title: process.env.npm_package_name || '',
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { hid: "description", name: "description", content: "Hi, I'm Brian. A full-stack developer from Sidoarjo!" },
-      { hid: "og:description", name: "og:description", content: "Hi, I'm Brian. A full-stack developer from Sidoarjo!" },
-      { hid: "og:title", name: "og:title", content: "Brian Harianja" }
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans:wght@500;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" },
-      { rel: 'stylesheet', href: "https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: "#fff" },
-  /*
-   ** Global CSS
-   */
-  css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [],
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: ["@nuxtjs/vuetify"],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios",
-    "@nuxtjs/pwa"
+  ** Global CSS
+  */
+  css: [
   ],
   /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
+  ** Plugins to load before mounting the App
+  ** https://nuxtjs.org/guide/plugins
+  */
+  plugins: [
+  ],
   /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
+  ** Auto import components
+  ** See https://nuxtjs.org/api/configuration-components
+  */
+  components: true,
+  /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+    '@nuxtjs/vuetify',
+  ],
+  /*
+  ** Nuxt.js modules
+  */
+  modules: [
+  ],
+  /*
+  ** vuetify module configuration
+  ** https://github.com/nuxt-community/vuetify-module
+  */
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
+    customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
       themes: {
@@ -72,17 +75,10 @@ export default {
       }
     }
   },
-  server: {
-    port: "3000",
-    host: "localhost" // default: localhost
-  },
   /*
-   ** Build configuration
-   */
+  ** Build configuration
+  ** See https://nuxtjs.org/api/configuration-build/
+  */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
   }
-};
+}
