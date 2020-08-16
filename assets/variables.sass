@@ -2,7 +2,38 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+@import '~vuetify/src/styles/settings/_variables'
+
 =innerShadow($horizontal, $vertical, $spread, $color)
     -moz-box-shadow: inset $horizontal $vertical $spread $color
     -webkit-box-shadow: inset $horizontal $vertical $spread $color
     box-shadow: inset $horizontal $vertical $spread $color
+
+=outerShadow($horizontal, $vertical, $blur, $spread, $color)
+    -moz-box-shadow: $horizontal $vertical $blur $spread $color
+    -webkit-box-shadow: $horizontal $vertical $blur $spread $color
+    box-shadow: $horizontal $vertical $blur $spread $color
+
+=keyframes($name)
+    @-moz-keyframes #{$name}
+        @content
+    @-webkit-keyframes #{$name}
+        @content
+    @-ms-keyframes #{$name}
+        @content
+    @keyframes #{$name}
+        @content
+
++keyframes(fadeOut)
+    0%
+      opacity: 1
+    100%
+      opacity: 0
+
++keyframes(fadeIn)
+    0%
+      opacity: 0
+    50%
+      opacity: 0.5
+    100%
+      opacity: 1
