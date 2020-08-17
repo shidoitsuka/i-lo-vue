@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-container fluid>
+      <v-container class="pa-0 ma-0" fluid>
         <nuxt />
       </v-container>
     </v-main>

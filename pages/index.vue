@@ -6,8 +6,9 @@
           <v-col cols="12">
             <v-img
               src="/img/photo.JPG"
+              lazy-src="/img/lazy/profile.png"
               aspect-ratio="1"
-              class="rounded-circle mx-auto"
+              class="rounded-circle mx-auto profile-photo"
               height="auto"
               width="200px"
             ></v-img>
@@ -19,19 +20,38 @@
             </div>
           </v-col>
           <v-col cols="12" class="text-center">
-            <v-btn class="social-icon whatsapp-icon" icon
+            <v-btn
+              class="social-icon whatsapp-icon"
+              href="https://api.whatsapp.com/send?phone=6285337974324/"
+              target="_blank"
+              icon
               ><v-icon>mdi-whatsapp</v-icon></v-btn
             >
-            <v-btn class="social-icon facebook-icon" icon
+            <v-btn
+              class="social-icon facebook-icon"
+              href="htpps://fb.me/OfficialUltimateOtaku/"
+              target="_blank"
+              icon
               ><v-icon>mdi-facebook</v-icon></v-btn
             >
-            <v-btn class="social-icon linkedin-icon" icon
+            <v-btn
+              class="social-icon linkedin-icon"
+              href="https://www.linkedin.com/in/standinshd/"
+              target="_blank"
+              icon
               ><v-icon>mdi-linkedin</v-icon></v-btn
             >
-            <v-btn class="social-icon email-icon" icon
+            <v-btn
+              class="social-icon email-icon"
+              href="mailto:mail@standinshd.site"
+              icon
               ><v-icon>mdi-email</v-icon></v-btn
             >
-            <v-btn class="social-icon instagram-icon" icon
+            <v-btn
+              class="social-icon instagram-icon"
+              href="https://instagram.com/standinshd/"
+              target="_blank"
+              icon
               ><v-icon>mdi-instagram</v-icon></v-btn
             >
           </v-col>
@@ -42,21 +62,24 @@
         <v-row class="main-100">
           <!-- main column -->
           <v-col cols="12" class="pa-5">
-            <h2>Experience</h2>
+            <h2 class="head-title">Experience</h2>
           </v-col>
           <!-- nested-row-1 image -->
           <v-col cols="12">
             <v-row class="pa-3" no-gutters>
-              <v-col cols="12" sm="3">
+              <v-col cols="12" sm="3" class="image-1">
                 <v-img
                   src="/img/experience/1.jpg"
+                  lazy-src="/img/lazy/experience.png"
                   class="experience-image experience-image-hi"
+                  v-ripple="{ center: true }"
+                  aspect-ratio="1"
                 >
                   <div class="experience-image-info">
                     <div class="experience-image-inner"></div>
                     <span class="experience-image-text font-weight-bold">
-                      Description In publishing and graphic design, Lorem ipsum
-                      is a placeholder text commonly used to
+                      Event organizer, documenter & photographer for student
+                      council orientation period 2019
                     </span>
                   </div>
                 </v-img>
@@ -66,13 +89,16 @@
                   <v-col cols="6" sm="12">
                     <v-img
                       src="/img/experience/2.jpg"
+                      lazy-src="/img/lazy/experience.png"
                       class="experience-image experience-image-lo-1"
+                      v-ripple="{ center: true }"
+                      aspect-ratio="1"
                     >
                       <div class="experience-image-info">
                         <div class="experience-image-inner"></div>
                         <span class="experience-image-text font-weight-bold">
-                          Description In publishing and graphic design, Lorem
-                          ipsum is a placeholder text commonly used to
+                          SMK Krian 1 representative for Sidoarjo Education and
+                          Culture Expo (SIEDUCEX) 2019
                         </span>
                       </div>
                     </v-img>
@@ -80,14 +106,15 @@
                   <v-col cols="6" sm="12">
                     <v-img
                       src="/img/experience/3.jpg"
+                      lazy-src="/img/lazy/experience.png"
                       class="experience-image experience-image-lo-2"
+                      v-ripple="{ center: true }"
                       aspect-ratio="1"
                     >
                       <div class="experience-image-info">
                         <div class="experience-image-inner"></div>
                         <span class="experience-image-text font-weight-bold">
-                          Description In publishing and graphic design, Lorem
-                          ipsum is a placeholder text commonly used to
+                          Part of student & teacher exchange with Thailand 2019
                         </span>
                       </div>
                     </v-img>
@@ -106,7 +133,7 @@
         </v-row>
         <v-row class="main-100">
           <v-col cols="12" class="pa-5">
-            <h2>Skills</h2>
+            <h2 class="head-title">Skills</h2>
           </v-col>
           <v-col cols="6" sm="3" class="text-center">
             <v-progress-circular
@@ -155,62 +182,28 @@
         </v-row>
         <v-row class="main-100">
           <v-col cols="12" class="pa-5">
-            <h2>Gallery</h2>
+            <h2 class="head-title">Gallery</h2>
           </v-col>
-          <v-col cols="12" class="text-center">
+          <v-col cols="12" class="text-center gallery-container">
             <v-row no-gutters>
-              <v-col cols="4" class="pa-5">
+              <v-col
+                v-for="n in galleryData.length"
+                :key="n"
+                cols="6"
+                md="4"
+                class="pa-2 gallery-image-container mx-auto text-center"
+              >
                 <v-img
-                  src="/img/gallery/1.jpg"
+                  :src="'/img/gallery/' + galleryData[n - 1].file"
+                  lazy-src="/img/lazy/gallery.png"
                   class="gallery-image"
-                  height="150px"
+                  height="200px"
+                  v-ripple="{ center: true }"
                   aspect-ratio="1"
                 >
-                </v-img>
-              </v-col>
-              <v-col cols="4" class="pa-5">
-                <v-img
-                  src="/img/gallery/2.jpg"
-                  class="gallery-image"
-                  height="150px"
-                  aspect-ratio="1"
-                >
-                </v-img>
-              </v-col>
-              <v-col cols="4" class="pa-5">
-                <v-img
-                  src="/img/gallery/3.jpg"
-                  class="gallery-image"
-                  height="150px"
-                  aspect-ratio="1"
-                >
-                </v-img>
-              </v-col>
-              <v-col cols="4" class="pa-5">
-                <v-img
-                  src="/img/gallery/4.jpg"
-                  class="gallery-image"
-                  height="150px"
-                  aspect-ratio="1"
-                >
-                </v-img>
-              </v-col>
-              <v-col cols="4" class="pa-5">
-                <v-img
-                  src="/img/gallery/5.jpg"
-                  class="gallery-image"
-                  height="150px"
-                  aspect-ratio="1"
-                >
-                </v-img>
-              </v-col>
-              <v-col cols="4" class="pa-5">
-                <v-img
-                  src="/img/gallery/6.jpg"
-                  class="gallery-image"
-                  height="150px"
-                  aspect-ratio="1"
-                >
+                  <div class="gallery-image-inner">
+                    <span class="gallery-image-text">{{ galleryData[n - 1].tooltip }}</span>
+                  </div>
                 </v-img>
               </v-col>
             </v-row>
@@ -222,18 +215,38 @@
 </template>
 
 <script>
-export default {};
+import galleryData from "~/assets/gallery.js";
+export default {
+  data() {
+    return {
+      galleryData
+    };
+  }
+};
 </script>
 
 <style lang="sass" scoped>
 .left-container
   height: 100%
-  background: #f0f0f0
-  +innerShadow(-10px, 0, 10px, #b5b5b5)
+  background: #F6F6F9
+  +innerShadow(-10px, 0, 30px, #b5b5b5)
   @media only screen and (max-width: 600px)
-    height: 100vh
-    +innerShadow(0, -10px, 10px, #b5b5b5)
+    height: 120vh
+    display: flex
+    justify-content: center
+    align-items: center
+    +innerShadow(0, -20px, 50px, #b5b5b5)
 
+.right-container
+  background: #F6F6F9
+
+.profile-photo
+  border-bottom: 10px solid #919eff
+
+.head-title
+  border-bottom: 5px solid #919eff
+  padding-bottom: 5px
+  display: inline
 
 .social-icon
   padding: 20px
@@ -257,8 +270,9 @@ export default {};
   border-radius: 15px
   margin: 10px
   z-index: 1
-  +outerShadow(3px, 2px, 20px, 5px, #b5b5b5)
-  animation: fadeIn 1.5s
+  cursor: pointer
+  +outerShadow(3px, 2px, 20px, 3px, #b5b5b5)
+  animation: fadeIn .3s
 
 .experience-image-inner
   background: rgba(255, 255, 255, 0.5)
@@ -274,16 +288,20 @@ export default {};
   margin: 5px
   padding: 5px
   color: #000
-  animation: fadeIn 2s
+  animation: fadeIn .5s
 
 .experience-image-info:hover > *
-  animation: fadeOut 1s
+  animation: fadeOut .3s
   opacity: 0
 
 .experience-image-lo-1 .experience-image-text
   max-width: 70%
   @media only screen and (max-width: 600px)
     max-width: 100%
+
+.image-1
+  @media only screen and (max-width: 600px)
+    padding: 20px
 
 .experience-image-hi
   width: 15.5vw
@@ -308,8 +326,30 @@ export default {};
     width: 45vw
     margin: 0 auto
 
+.gallery-container
+  height: 50vh
+  overflow-y: scroll
+
 .gallery-image
-  border-radius: 15px
+  border-radius: 10px
+  cursor: pointer
+
+.gallery-image-inner
+  display: flex
+  justify-content: flex-end
+  margin: 5px
+  animation: fadeOut .3s
+  opacity: 0
+
+.gallery-image-text
+  font-weight: bolder
+  background: #F6F6F9
+  border-radius: 5px
+  padding: 1% 3%
+
+.gallery-image:hover .gallery-image-inner
+  animation: fadeIn .3s
+  opacity: 1
 
 *
   // border: 1px solid blue
