@@ -6,7 +6,7 @@
           <v-col cols="12">
             <v-img
               src="/img/photo.JPG"
-              lazy-src="/img/lazy/profile.png"
+              lazy-src="/img/lazy/lazy.svg"
               aspect-ratio="1"
               class="rounded-circle mx-auto profile-photo"
               height="auto"
@@ -70,7 +70,7 @@
               <v-col cols="12" sm="3" class="image-1">
                 <v-img
                   src="/img/experience/1.jpg"
-                  lazy-src="/img/lazy/experience.png"
+                  lazy-src="/img/lazy/lazy.svg"
                   class="experience-image experience-image-hi"
                   v-ripple="{ center: true }"
                   aspect-ratio="1"
@@ -89,7 +89,7 @@
                   <v-col cols="6" sm="12">
                     <v-img
                       src="/img/experience/2.jpg"
-                      lazy-src="/img/lazy/experience.png"
+                      lazy-src="/img/lazy/lazy.svg"
                       class="experience-image experience-image-lo-1"
                       v-ripple="{ center: true }"
                       aspect-ratio="1"
@@ -106,7 +106,7 @@
                   <v-col cols="6" sm="12">
                     <v-img
                       src="/img/experience/3.jpg"
-                      lazy-src="/img/lazy/experience.png"
+                      lazy-src="/img/lazy/lazy.svg"
                       class="experience-image experience-image-lo-2"
                       v-ripple="{ center: true }"
                       aspect-ratio="1"
@@ -195,7 +195,7 @@
               >
                 <v-img
                   :src="'/img/gallery/' + galleryData[n - 1].file"
-                  lazy-src="/img/lazy/gallery.png"
+                  lazy-src="/img/lazy/lazy.svg"
                   class="gallery-image"
                   height="200px"
                   v-ripple="{ center: true }"
