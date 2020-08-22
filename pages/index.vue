@@ -55,6 +55,11 @@
               ><v-icon>mdi-instagram</v-icon></v-btn
             >
           </v-col>
+          <v-col cols="12" class="text-center">
+            <v-btn outlined color="#919EFF" href="https://drive.google.com/file/d/1Liy9MUsT9HCDdG49JJ86_kXnUBTAFatX/view?usp=sharing" target="_blank">
+              Check out my CV
+            </v-btn>
+          </v-col>
         </v-row>
       </v-col>
       <v-col cols="12" sm="9" class="right-container">
@@ -293,6 +298,9 @@ export default {
 .experience-image-info:hover > *
   animation: fadeOut .3s
   opacity: 0
+
+.experience-image:hover
+  border: 10px solid red
 
 .experience-image-lo-1 .experience-image-text
   max-width: 70%
