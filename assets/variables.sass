@@ -33,7 +33,26 @@
 +keyframes(fadeIn)
     0%
       opacity: 0
+      filter: grayscale(100%)
     50%
       opacity: 0.5
+      filter: grayscale(50%)
     100%
       opacity: 1
+      filter: grayscale(0%)
+
++keyframes(grayscaleIn)
+    0%
+      filter: grayscale(0%)
+    50%
+      filter: grayscale(33%)
+    100%
+      filter: grayscale(70%)
+
++keyframes(grayscaleOut)
+    0%
+      filter: grayscale(70%)
+    50%
+      filter: grayscale(33%)
+    100%
+      filter: grayscale(0%)
