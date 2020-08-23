@@ -35,6 +35,13 @@
               ><v-icon>mdi-facebook</v-icon></v-btn
             >
             <v-btn
+              class="social-icon github-icon"
+              href="https://github.com/shidoitsuka/"
+              target="_blank"
+              icon
+              ><v-icon>mdi-github</v-icon></v-btn
+            >
+            <v-btn
               class="social-icon linkedin-icon"
               href="https://www.linkedin.com/in/standinshd/"
               target="_blank"
@@ -72,7 +79,7 @@
           <!-- nested-row-1 image -->
           <v-col cols="12">
             <v-row class="pa-3" no-gutters>
-              <v-col cols="12" sm="3" class="image-1">
+              <v-col cols="12" sm="3">
                 <v-img
                   src="/img/experience/1.jpg"
                   lazy-src="/img/lazy/lazy.svg"
@@ -262,6 +269,9 @@ export default {
 .facebook-icon:hover
   color: blue
 
+.github-icon:hover
+  color: #24292E
+
 .linkedin-icon:hover
   color: #2867B2
 
@@ -278,6 +288,12 @@ export default {
   cursor: pointer
   +outerShadow(3px, 2px, 20px, 3px, #b5b5b5)
   animation: fadeIn .3s
+  animation: grayscaleIn .5s ease-in
+  filter: grayscale(70%)
+
+.experience-image:hover
+  animation: grayscaleOut .5s ease-out
+  filter: grayscale(0%)
 
 .experience-image-inner
   background: rgba(255, 255, 255, 0.5)
@@ -299,17 +315,10 @@ export default {
   animation: fadeOut .3s
   opacity: 0
 
-.experience-image:hover
-  border: 10px solid red
-
 .experience-image-lo-1 .experience-image-text
   max-width: 70%
   @media only screen and (max-width: 600px)
     max-width: 100%
-
-.image-1
-  @media only screen and (max-width: 600px)
-    padding: 20px
 
 .experience-image-hi
   width: 15.5vw
