@@ -1,7 +1,10 @@
 <template>
   <v-layout>
+    <v-alert type="warning" class="alert" transition="scale-transition" :value="showAlert">
+      This site is under development!
+    </v-alert>
     <v-row>
-      <v-col cols="12" sm="3" class="left-container">
+      <v-col cols="12" md="3" class="left-container">
         <v-row>
           <v-col cols="12">
             <v-img
@@ -63,13 +66,13 @@
             >
           </v-col>
           <v-col cols="12" class="text-center">
-            <v-btn outlined color="#919EFF" href="https://drive.google.com/file/d/1Liy9MUsT9HCDdG49JJ86_kXnUBTAFatX/view?usp=sharing" target="_blank">
+            <v-btn color="#919EFF" href="https://drive.google.com/file/d/1Liy9MUsT9HCDdG49JJ86_kXnUBTAFatX/view?usp=sharing" target="_blank">
               Check out my CV
             </v-btn>
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="12" sm="9" class="right-container">
+      <v-col cols="12" md="9" class="right-container">
         <!-- main container -->
         <v-row class="main-100">
           <!-- main column -->
@@ -79,7 +82,7 @@
           <!-- nested-row-1 image -->
           <v-col cols="12">
             <v-row class="pa-3" no-gutters>
-              <v-col cols="12" sm="3">
+              <v-col cols="12" md="3">
                 <v-img
                   src="/img/experience/1.jpg"
                   lazy-src="/img/lazy/lazy.svg"
@@ -96,9 +99,9 @@
                   </div>
                 </v-img>
               </v-col>
-              <v-col cols="12" sm="9">
+              <v-col cols="12" md="9">
                 <v-row no-gutters>
-                  <v-col cols="6" sm="12">
+                  <v-col cols="6" md="12">
                     <v-img
                       src="/img/experience/2.jpg"
                       lazy-src="/img/lazy/lazy.svg"
@@ -115,7 +118,7 @@
                       </div>
                     </v-img>
                   </v-col>
-                  <v-col cols="6" sm="12">
+                  <v-col cols="6" md="12">
                     <v-img
                       src="/img/experience/3.jpg"
                       lazy-src="/img/lazy/lazy.svg"
@@ -147,7 +150,7 @@
           <v-col cols="12" class="pa-5">
             <h2 class="head-title">Skills</h2>
           </v-col>
-          <v-col cols="6" sm="3" class="text-center">
+          <v-col cols="6" md="3" class="text-center">
             <v-progress-circular
               :rotate="360"
               :size="120"
@@ -158,7 +161,7 @@
             </v-progress-circular>
             <p class="mt-2">Val</p>
           </v-col>
-          <v-col cols="6" sm="3" class="text-center">
+          <v-col cols="6" md="3" class="text-center">
             <v-progress-circular
               :rotate="360"
               :size="120"
@@ -169,7 +172,7 @@
             </v-progress-circular>
             <p class="mt-2">Val</p>
           </v-col>
-          <v-col cols="6" sm="3" class="text-center">
+          <v-col cols="6" md="3" class="text-center">
             <v-progress-circular
               :rotate="360"
               :size="120"
@@ -180,7 +183,7 @@
             </v-progress-circular>
             <p class="mt-2">Val</p>
           </v-col>
-          <v-col cols="6" sm="3" class="text-center">
+          <v-col cols="6" md="3" class="text-center">
             <v-progress-circular
               :rotate="360"
               :size="120"
@@ -221,6 +224,16 @@
             </v-row>
           </v-col>
         </v-row>
+        <v-row class="main-100">
+          <v-col cols="12" class="pa-5">
+            <h2 class="head-title">Projects</h2>
+          </v-col>
+          <v-col cols="12" class="text-center">
+            <v-row no-gutters>
+              
+            </v-row>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-layout>
@@ -231,22 +244,39 @@ import galleryData from "~/assets/gallery.js";
 export default {
   data() {
     return {
-      galleryData
+      galleryData,
+      showAlert: true
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 5000);
   }
 };
 </script>
 
 <style lang="sass" scoped>
+.alert
+  position: fixed
+  left: 15px
+  bottom: 0
+  z-index: 3
+
 .left-container
   height: 100%
   background: #F6F6F9
   +innerShadow(-10px, 0, 30px, #b5b5b5)
-  @media only screen and (max-width: 600px)
+  background-image: url("/img/background.svg")
+  background-size: 400px
+  animation: leftRight 60s infinite
+  @media only screen and (max-width: 960px)
     height: 120vh
     display: flex
     justify-content: center
     align-items: center
+    background-size: 600px
+    animation: bottomTop 60s
     +innerShadow(0, -20px, 50px, #b5b5b5)
 
 .right-container
@@ -317,20 +347,20 @@ export default {
 
 .experience-image-lo-1 .experience-image-text
   max-width: 70%
-  @media only screen and (max-width: 600px)
+  @media only screen and (max-width: 960px)
     max-width: 100%
 
 .experience-image-hi
   width: 15.5vw
   height: 70vh
-  @media only screen and (max-width: 600px)
+  @media only screen and (max-width: 960px)
     height: 30vh
     width: 100vw
 
 .experience-image-lo-1
   height: 150px
   width: 50.5vw
-  @media only screen and (max-width: 600px)
+  @media only screen and (max-width: 960px)
     height: 20vh
     width: 45vw
     margin: 0 auto
@@ -338,7 +368,7 @@ export default {
 .experience-image-lo-2
   height: 150px
   width: 34.5vw
-  @media only screen and (max-width: 600px)
+  @media only screen and (max-width: 960px)
     height: 20vh
     width: 45vw
     margin: 0 auto
