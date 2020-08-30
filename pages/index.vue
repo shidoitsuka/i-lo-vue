@@ -1,6 +1,11 @@
 <template>
   <v-layout>
-    <v-alert type="warning" class="alert" transition="scale-transition" :value="showAlert">
+    <v-alert
+      type="warning"
+      class="alert"
+      transition="scale-transition"
+      :value="showAlert"
+    >
       This site is under development!
     </v-alert>
     <v-row>
@@ -66,14 +71,19 @@
             >
           </v-col>
           <v-col cols="12" class="text-center">
-            <v-btn color="#919EFF" href="https://drive.google.com/file/d/1Liy9MUsT9HCDdG49JJ86_kXnUBTAFatX/view?usp=sharing" target="_blank">
+            <v-btn
+              color="#919EFF"
+              href="https://drive.google.com/file/d/1Liy9MUsT9HCDdG49JJ86_kXnUBTAFatX/view?usp=sharing"
+              target="_blank"
+            >
               Check out my CV
             </v-btn>
           </v-col>
         </v-row>
       </v-col>
+      <!-- right container -->
       <v-col cols="12" md="9" class="right-container">
-        <!-- main container -->
+        <!-- main -- experience -->
         <v-row class="main-100">
           <!-- main column -->
           <v-col cols="12" class="pa-5">
@@ -146,6 +156,8 @@
             </v-row>
           </v-col>
         </v-row>
+        <!-- !! main -- experience -->
+        <!-- main -- skills -->
         <v-row class="main-100">
           <v-col cols="12" class="pa-5">
             <h2 class="head-title">Skills</h2>
@@ -195,6 +207,8 @@
             <p class="mt-2">Val</p>
           </v-col>
         </v-row>
+        <!-- !! main -- skills -->
+        <!-- main -- gallery -->
         <v-row class="main-100">
           <v-col cols="12" class="pa-5">
             <h2 class="head-title">Gallery</h2>
@@ -217,41 +231,120 @@
                   aspect-ratio="1"
                 >
                   <div class="gallery-image-inner">
-                    <span class="gallery-image-text">{{ galleryData[n - 1].tooltip }}</span>
+                    <span class="gallery-image-text">{{
+                      galleryData[n - 1].tooltip
+                    }}</span>
                   </div>
                 </v-img>
               </v-col>
             </v-row>
           </v-col>
         </v-row>
+        <!-- !! main -- gallery -->
+        <!-- main -- project -->
         <v-row class="main-100">
           <v-col cols="12" class="pa-5">
             <h2 class="head-title">Projects</h2>
           </v-col>
-          <v-col cols="12" class="text-center">
-            <v-row no-gutters>
-              
-            </v-row>
+          <v-dialog
+            scrollable
+            v-model="projectDetails"
+            width="700px"
+            :fullscreen="$vuetify.breakpoint.mdAndDown"
+          >
+            <v-card>
+              <v-card-title class="project-details-title">
+                <div class="project-details-title-details">
+                  <h1>{{ projectDetailsData.name }}</h1>
+                  <!-- prettier-ignore -->
+                  <span class="text-caption">{{ projectDetailsData.overview }}</span>
+                </div>
+                <v-spacer></v-spacer>
+                <div class="project-details-title-action">
+                  <v-btn class="white--text" icon @click="projectDetails = !projectDetails"><v-icon>mdi-close</v-icon></v-btn>
+                </div>
+              </v-card-title>
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" md="3">
+                    <v-img height="150" width="150" class="mx-auto" :src="'/img/projectThumbs/' + projectDetailsData.icon"></v-img>
+                  </v-col>
+                  <v-col cols="12" md="9">
+                    <p>{{ projectDetailsData.description }}</p>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+              <v-divider></v-divider>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn text>Github</v-btn>
+                <v-btn text>See Project</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <v-col cols="12" class="project-container text-center d-flex">
+            <v-card
+              v-ripple
+              elevation="5"
+              class="project-card-container mr-7"
+              min-height="130px"
+              min-width="300px"
+              v-for="items in projectData"
+              :key="items.name"
+            >
+              <v-container>
+                <v-row justify="center" align="center">
+                  <v-col cols="12">
+                    <div class="project-card-title">
+                      <h3>
+                        {{ items.name }}
+                      </h3>
+                      <p>
+                        {{ items.overview }}
+                      </p>
+                    </div>
+                    <div class="project-card-action">
+                      <!-- prettier-ignore -->
+                      <v-btn icon @click="showProjectDetails(items)"><v-icon>mdi-information-outline</v-icon></v-btn>
+                      <v-btn v-if="items.github" :href="'https://github.com/' + items.github" target="_blank" icon><v-icon>mdi-xml</v-icon></v-btn>
+                      <v-btn v-if="items.href" :href="'https://' + items.href" target="_blank" icon><v-icon>mdi-share</v-icon></v-btn>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card>
           </v-col>
         </v-row>
+        <!-- !! main -- project -->
       </v-col>
+      <!-- !! right container -->
     </v-row>
   </v-layout>
 </template>
 
 <script>
 import galleryData from "~/assets/gallery.js";
+import projectData from "~/assets/projects.js";
 export default {
   data() {
     return {
       galleryData,
-      showAlert: true
+      projectData,
+      showAlert: true,
+      projectDetails: false,
+      projectDetailsData: {}
     };
   },
   mounted() {
     setTimeout(() => {
       this.showAlert = false;
     }, 5000);
+  },
+  methods: {
+    showProjectDetails(item) {
+      this.projectDetailsData = item;
+      this.projectDetails = true;
+    }
   }
 };
 </script>
@@ -269,14 +362,14 @@ export default {
   +innerShadow(-10px, 0, 30px, #b5b5b5)
   background-image: url("/img/background.svg")
   background-size: 400px
-  animation: leftRight 60s infinite
+  // animation: leftRight 60s infinite
   @media only screen and (max-width: 960px)
     height: 120vh
     display: flex
     justify-content: center
     align-items: center
     background-size: 600px
-    animation: bottomTop 60s
+    // animation: bottomTop 60s infinite
     +innerShadow(0, -20px, 50px, #b5b5b5)
 
 .right-container
@@ -397,6 +490,16 @@ export default {
 .gallery-image:hover .gallery-image-inner
   animation: fadeIn .3s
   opacity: 1
+
+.project-container
+  // prevent flex-box to overflows whole document
+  width: 1px
+  // make it scroll
+  overflow-x: scroll
+
+.project-details-title
+  background: #7984db
+  color: white
 
 *
   // border: 1px solid blue
