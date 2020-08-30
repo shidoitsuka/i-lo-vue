@@ -246,48 +246,73 @@
           <v-col cols="12" class="pa-5">
             <h2 class="head-title">Projects</h2>
           </v-col>
+          <v-dialog
+            scrollable
+            v-model="projectDetails"
+            width="700px"
+            :fullscreen="$vuetify.breakpoint.mdAndDown"
+          >
+            <v-card>
+              <v-card-title class="project-details-title">
+                <div class="project-details-title-details">
+                  <h1>{{ projectDetailsData.name }}</h1>
+                  <!-- prettier-ignore -->
+                  <span class="text-caption">{{ projectDetailsData.overview }}</span>
+                </div>
+                <v-spacer></v-spacer>
+                <div class="project-details-title-action">
+                  <v-btn class="white--text" icon @click="projectDetails = !projectDetails"><v-icon>mdi-close</v-icon></v-btn>
+                </div>
+              </v-card-title>
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" md="3">
+                    <v-img height="150" width="150" class="mx-auto" :src="'/img/projectThumbs/' + projectDetailsData.icon"></v-img>
+                  </v-col>
+                  <v-col cols="12" md="9">
+                    <p>{{ projectDetailsData.description }}</p>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+              <v-divider></v-divider>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn text>Github</v-btn>
+                <v-btn text>See Project</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
           <v-col cols="12" class="project-container text-center d-flex">
-            <v-dialog
-              v-model="projectDetails"
-              width="500px"
-              v-for="projects in projectData.length"
-              :key="projects"
+            <v-card
+              v-ripple
+              elevation="5"
+              class="project-card-container mr-7"
+              min-height="130px"
+              min-width="300px"
+              v-for="items in projectData"
+              :key="items.name"
             >
-              <template v-slot:activator="{ on, attrs }">
-                <v-card
-                  class="project-card-container mr-7"
-                  min-height="130px"
-                  min-width="300px"
-                  v-bind="attrs"
-                >
-                  <v-container>
-                    <v-row justify="center" align="center">
-                      <v-col cols="12">
-                        <div class="project-card-title">
-                          <h3>
-                            {{ projectData[projects - 1].name }}
-                          </h3>
-                          <p>
-                            {{ projectData[projects - 1].overview }}
-                          </p>
-                        </div>
-                        <div class="project-card-action">
-                          <v-btn icon v-on="on"><v-icon>mdi-information-outline</v-icon></v-btn>
-                          <v-btn icon><v-icon>mdi-xml</v-icon></v-btn>
-                          <v-btn icon><v-icon>mdi-share</v-icon></v-btn>
-                        </div>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card>
-              </template>
-              <v-card>
-                <h1>{{ projectData[projects - 1].name }}</h1>
-                <p>
-                  {{ projectData[projects - 1].overview }}
-                </p>
-              </v-card>
-            </v-dialog>
+              <v-container>
+                <v-row justify="center" align="center">
+                  <v-col cols="12">
+                    <div class="project-card-title">
+                      <h3>
+                        {{ items.name }}
+                      </h3>
+                      <p>
+                        {{ items.overview }}
+                      </p>
+                    </div>
+                    <div class="project-card-action">
+                      <!-- prettier-ignore -->
+                      <v-btn icon @click="showProjectDetails(items)"><v-icon>mdi-information-outline</v-icon></v-btn>
+                      <v-btn v-if="items.github" :href="'https://github.com/' + items.github" target="_blank" icon><v-icon>mdi-xml</v-icon></v-btn>
+                      <v-btn v-if="items.href" :href="'https://' + items.href" target="_blank" icon><v-icon>mdi-share</v-icon></v-btn>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card>
           </v-col>
         </v-row>
         <!-- !! main -- project -->
@@ -306,13 +331,20 @@ export default {
       galleryData,
       projectData,
       showAlert: true,
-      projectDetails: false
+      projectDetails: false,
+      projectDetailsData: {}
     };
   },
   mounted() {
     setTimeout(() => {
       this.showAlert = false;
     }, 5000);
+  },
+  methods: {
+    showProjectDetails(item) {
+      this.projectDetailsData = item;
+      this.projectDetails = true;
+    }
   }
 };
 </script>
@@ -464,6 +496,10 @@ export default {
   width: 1px
   // make it scroll
   overflow-x: scroll
+
+.project-details-title
+  background: #7984db
+  color: white
 
 *
   // border: 1px solid blue
