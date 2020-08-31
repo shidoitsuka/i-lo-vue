@@ -1,0 +1,70 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+@import '~vuetify/src/styles/settings/_variables'
+
+=innerShadow($horizontal, $vertical, $spread, $color)
+    -moz-box-shadow: inset $horizontal $vertical $spread $color
+    -webkit-box-shadow: inset $horizontal $vertical $spread $color
+    box-shadow: inset $horizontal $vertical $spread $color
+
+=outerShadow($horizontal, $vertical, $blur, $spread, $color)
+    -moz-box-shadow: $horizontal $vertical $blur $spread $color
+    -webkit-box-shadow: $horizontal $vertical $blur $spread $color
+    box-shadow: $horizontal $vertical $blur $spread $color
+
+=keyframes($name)
+    @-moz-keyframes #{$name}
+        @content
+    @-webkit-keyframes #{$name}
+        @content
+    @-ms-keyframes #{$name}
+        @content
+    @keyframes #{$name}
+        @content
+
++keyframes(fadeOut)
+    0%
+      opacity: 1
+    100%
+      opacity: 0
+
++keyframes(fadeIn)
+    0%
+      opacity: 0
+      filter: grayscale(100%)
+    50%
+      opacity: 0.5
+      filter: grayscale(50%)
+    100%
+      opacity: 1
+      filter: grayscale(0%)
+
++keyframes(grayscaleIn)
+    0%
+      filter: grayscale(0%)
+    50%
+      filter: grayscale(33%)
+    100%
+      filter: grayscale(70%)
+
++keyframes(grayscaleOut)
+    0%
+      filter: grayscale(70%)
+    50%
+      filter: grayscale(33%)
+    100%
+      filter: grayscale(0%)
+
++keyframes(leftRight)
+    from
+      background-position: 500px 0
+    to
+      background-position: 0 0
+
++keyframes(bottomTop)
+    from
+      background-position: 0 500px
+    to
+      background-position: 0 0
