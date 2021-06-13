@@ -5,7 +5,7 @@ export default [
     description: "I fell in love with vue, and made my portofolio site using vue + nuxt!",
     icon: "i-lo-vue.svg",
     github: "shidoitsuka/i-lo-vue.git",
-    href: "standinshd.site",
+    href: "shdev.tech",
     lang: []
   },
   {
@@ -23,7 +23,7 @@ export default [
     description: "I created miku a website so it's easier for her to reach more users. It is shipped into Miku's code. So that when Miku is up, the site is also up as well.",
     icon: "miku-site.svg",
     github: "shidoitsuka/another-miku-bot.git",
-    href: "https://miku.standinshd.site/",
+    href: "miku.shdev.tech",
     lang: [""]
   },
   {

@@ -37,7 +37,7 @@
             >
             <v-btn
               class="social-icon facebook-icon"
-              href="htpps://fb.me/OfficialUltimateOtaku/"
+              href="https://fb.me/OfficialUltimateOtaku/"
               target="_blank"
               icon
               ><v-icon>mdi-facebook</v-icon></v-btn
@@ -58,7 +58,7 @@
             >
             <v-btn
               class="social-icon email-icon"
-              href="mailto:mail@standinshd.site"
+              href="mailto:hi@shdev.tech"
               icon
               ><v-icon>mdi-email</v-icon></v-btn
             >
@@ -216,14 +216,14 @@
           <v-col cols="12" class="text-center gallery-container">
             <v-row no-gutters>
               <v-col
-                v-for="n in galleryData.length"
-                :key="n"
+                v-for="images in galleryData"
+                :key="images.file"
                 cols="6"
                 md="4"
                 class="pa-2 gallery-image-container mx-auto text-center"
               >
                 <v-img
-                  :src="'/img/gallery/' + galleryData[n - 1].file"
+                  :src="'/img/gallery/' + images.file"
                   lazy-src="/img/lazy/lazy.svg"
                   class="gallery-image"
                   height="200px"
@@ -231,10 +231,22 @@
                   aspect-ratio="1"
                 >
                   <div class="gallery-image-inner">
-                    <span class="gallery-image-text">{{
-                      galleryData[n - 1].tooltip
-                    }}</span>
+                    <span class="gallery-image-text">{{ images.tooltip }}</span>
                   </div>
+                </v-img>
+              </v-col>
+              <v-col cols="6" md="4" class="pa-2 gallery-image-container">
+                <v-img
+                  v-ripple
+                  lazy-src="/img/lazy/lazy.svg"
+                  src="/img/gallery/6.jpg"
+                  class="gallery-image see-more"
+                  height="200px"
+                  aspect-ratio="1"
+                >
+                  <v-container class="fill-height d-flex align-center justify-center">
+                    <h3 class="see-more-text white--text">See More...</h3>
+                  </v-container>
                 </v-img>
               </v-col>
             </v-row>
@@ -261,13 +273,23 @@
                 </div>
                 <v-spacer></v-spacer>
                 <div class="project-details-title-action">
-                  <v-btn class="white--text" icon @click="projectDetails = !projectDetails"><v-icon>mdi-close</v-icon></v-btn>
+                  <v-btn
+                    class="white--text"
+                    icon
+                    @click="projectDetails = !projectDetails"
+                    ><v-icon>mdi-close</v-icon></v-btn
+                  >
                 </div>
               </v-card-title>
               <v-card-text>
                 <v-row>
                   <v-col cols="12" md="3">
-                    <v-img height="150" width="150" class="mx-auto" :src="'/img/projectThumbs/' + projectDetailsData.icon"></v-img>
+                    <v-img
+                      height="150"
+                      width="150"
+                      class="mx-auto"
+                      :src="'/img/projectThumbs/' + projectDetailsData.icon"
+                    ></v-img>
                   </v-col>
                   <v-col cols="12" md="9">
                     <p>{{ projectDetailsData.description }}</p>
@@ -306,8 +328,20 @@
                     <div class="project-card-action">
                       <!-- prettier-ignore -->
                       <v-btn icon @click="showProjectDetails(items)"><v-icon>mdi-information-outline</v-icon></v-btn>
-                      <v-btn v-if="items.github" :href="'https://github.com/' + items.github" target="_blank" icon><v-icon>mdi-xml</v-icon></v-btn>
-                      <v-btn v-if="items.href" :href="'https://' + items.href" target="_blank" icon><v-icon>mdi-share</v-icon></v-btn>
+                      <v-btn
+                        v-if="items.github"
+                        :href="'https://github.com/' + items.github"
+                        target="_blank"
+                        icon
+                        ><v-icon>mdi-xml</v-icon>
+                      </v-btn>
+                      <v-btn
+                        v-if="items.href"
+                        :href="'https://' + items.href"
+                        target="_blank"
+                        icon
+                        ><v-icon>mdi-share</v-icon>
+                      </v-btn>
                     </div>
                   </v-col>
                 </v-row>
@@ -365,6 +399,7 @@ export default {
   // animation: leftRight 60s infinite
   @media only screen and (max-width: 960px)
     height: 120vh
+    border: 3px solid red
     display: flex
     justify-content: center
     align-items: center
@@ -487,6 +522,9 @@ export default {
   border-radius: 5px
   padding: 1% 3%
 
+.see-more
+  filter: blur(2.5px) brightness(70%)
+
 .gallery-image:hover .gallery-image-inner
   animation: fadeIn .3s
   opacity: 1
@@ -502,5 +540,5 @@ export default {
   color: white
 
 *
-  // border: 1px solid blue
+  border: 1px solid blue
 </style>
