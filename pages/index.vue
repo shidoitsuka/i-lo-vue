@@ -1,7 +1,8 @@
 <template>
   <div class="bg-background text-gray-300">
     <div class="bg-background fixed w-full px-6 p-4 md:text-center">
-      <h1 class="font-bolder text-3xl nav-text md:text-5xl">s</h1>
+      <h1 class="font-bolder nav-text md:text-5xl absolute animate__animated" id="titleIn">s</h1>
+      <!-- <h1 class="font-bolder nav-text md:text-5xl absolute animate__animated" id="titleOut"></h1> -->
       <div class="border-t-4 inline-block pb-3 w-4 md:w-6" />
     </div>
     <div class="w-full h-screen shadow-2xl">
@@ -34,7 +35,7 @@
       </div>
     </div>
 
-    <div class="w-full p-10 md:py-24 md:px-44 md:grid md:grid-cols-2 md:gap-5">
+    <div class="w-full p-10 description md:py-24 md:px-44 md:grid md:grid-cols-2 md:gap-5">
       <p class="text-right text-2xl mb-5 font-light">
         a <span class="font-bold">fullstack web developer</span> based in
         Indonesia with more than 5 years working on frontend web environment.
@@ -61,21 +62,23 @@
         </div>
       </div>
 
-      <div class="card mb-5 w-full bg-primary rounded-lg md:mb-0">
-        <div class="p-5">
-          <div class="font-semibold text-3xl">Education</div>
-          <div class="border-b border-4 inline-block w-10 mb-2"></div>
-          <p>
-            • SMP N 1 Siak Hulu
-            <span class="font-light text-xs">(2013-2016)</span>
-          </p>
-          <p>
-            • SMK Krian 1 Sidoarjo
-            <span class="font-light text-xs">(2018-2021)</span>
-          </p>
+      <div class="card mb-5 w-full bg-primary rounded-lg md:mb-0 flex">
+        <div class="">
+          <div class="p-5">
+            <div class="font-semibold text-3xl">Education</div>
+            <div class="border-b border-4 inline-block w-10 mb-2"></div>
+            <p>
+              • SMP N 1 Siak Hulu
+              <span class="font-light text-xs">(2013-2016)</span>
+            </p>
+            <p>
+              • SMK Krian 1 Sidoarjo
+              <span class="font-light text-xs">(2018-2021)</span>
+            </p>
+          </div>
         </div>
-        <div class="flex">
-          <EducationImage class="w-full h-56" />
+        <div class="p-5">
+          <EducationImage class="w-full h-full" />
         </div>
       </div>
 
@@ -83,7 +86,7 @@
         I'm not limited to tech. I believe that <span class="font-bold">everything</span> has its own opportunity.
       </p>
 
-      <div v-for="experience of experiences" :key="experience.name" class="card h-56 mb-5 w-full bg-primary rounded-lg relative cursor-pointer flex items-end md:mb-0" :class="experience.name + '-experience-container'">
+      <div v-for="experience of experiences" :key="experience.name" class="card h-56 mb-5 w-full bg-primary rounded-lg relative cursor-pointer flex items-end md:mb-0" :class="experience.name + '-experience-container'" @click="openImage(experience.name)">
         <div class="p-5 z-20 relative title-text">
           <div class="font-semibold text-3xl"></div>
           <p>
@@ -92,8 +95,12 @@
           <div class="border-t border-4 inline-block w-10 mb-1"></div>
         </div>
         <div class="w-full h-full absolute rounded-lg overflow-hidden">
-          <img class="experience-img" :class="experience.name + '-experience'" :src="'/img/experience/' + experience.image" alt="" />
+          <img class="experience-img" :class="experience.name + '-experience'" :src="'/img/experience/' + experience.image" v-shared-element:[`img-${experience.name}`] alt="" />
         </div>
+      </div>
+
+      <div v-if="previewImage" class="fixed overflow-hidden top-0 left-0 h-screen w-screen">
+        <img :src="'/img/experience/' + selectedImage.image" class="w-full" v-shared-element:[`img-${selectedImage.name}`] alt="" />
       </div>
 
     </div>
@@ -105,6 +112,10 @@ export default {
   name: "Index",
   data() {
     return {
+      scrollPosition: 0,
+      scrollState: "UNPASS",
+      previewImage: false,
+      selectedImage: {},
       experiences: [
         {
           name: "first",
@@ -123,6 +134,39 @@ export default {
         },
       ]
     }
+  },
+  methods: {
+    handleScroll() {
+      this.scrollPosition = window.scrollY;
+      const titleInEl = document.querySelector("#titleIn");
+      const titleOutEl = document.querySelector("#titleOut");
+      const targetScrollEl = document.querySelector(".description");
+      if (this.scrollPosition + 450 > targetScrollEl.scrollHeight) {
+        if (this.scrollState == "PASS") return;
+        this.scrollState = "PASS";
+        // passing description, show standinshd
+
+        titleInEl.innerHTML = "standinshd";
+      } else {
+        if (this.scrollState == "UNPASS") return;
+        this.scrollState = "UNPASS";
+        // show s
+
+        titleInEl.innerHTML = "s";
+      }
+    },
+    openImage(name) {
+      this.selectedImage = this.experiences.find(experience => experience.name === name);
+      this.previewImage = true;
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+    // const titleInEl = document.querySelector("#titleIn");
+    // titleInEl.classList.add("text-3xl");
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>
@@ -150,12 +194,30 @@ export default {
 
 .nav-text
   position: relative
-  &:after
-    position: absolute
-    // transform: translateX(-20px)
-    clip-path: revert-layer inset(10px 10px)
-  &:hover:after
-    content: "tandinshd"
+
+.titleIn
+  height: auto
+  opacity: 1
+
+.titleOut
+  height: 0
+  opacity: 0
+
+@keyframes slideIn
+  0%
+    height: 0
+    opacity: 0
+  100%
+    height: auto
+    opacity: 1
+
+@keyframes slideOut
+  0%
+    height: auto
+    opacity: 1
+  100%
+    height: 0
+    opacity: 0
 
 @keyframes change
   0%, 12.66%, 100%

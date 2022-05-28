@@ -1767,6 +1767,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+animate.css@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-4.1.1.tgz#614ec5a81131d7e4dc362a58143f7406abd68075"
+  integrity sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==
+
 ansi-align@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.1.tgz#0cdf12e111ace773a86e9a1fad1225c43cb19a59"
@@ -4320,6 +4325,13 @@ ignore@^5.1.8, ignore@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.0.tgz#6d3bac8fa7fe0d45d9f9be7bac2fc279577e345a"
   integrity sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==
+
+illusory@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/illusory/-/illusory-2.0.3.tgz#97015d60438f6ca594fb1437cdac25b89377fb9f"
+  integrity sha512-UKGUKGy2JjgqVtJkii4QY6VwJTa0bNKA0r3YehWip9DcK/Q0z190Vx7yDDDd4tPWqZ+j9zsZQ0iVSmYKCUgxwg==
+  dependencies:
+    rematrix "^0.7.0"
 
 immutable@^4.0.0:
   version "4.0.0"
@@ -7156,6 +7168,11 @@ relateurl@^0.2.7:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
+rematrix@^0.7.0:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/rematrix/-/rematrix-0.7.2.tgz#09b59118a6b46fc054ff64b6992e4865f5569077"
+  integrity sha512-NYLmE17dX15eUPhngLMTKlRYwATxEhcRdn9LKtk/iOXHxDKglCZnD2MrMLKwLlB5FX8u9kF/9yMhlQJpeDcuPw==
+
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
@@ -8405,6 +8422,13 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+v-shared-element@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/v-shared-element/-/v-shared-element-3.1.0.tgz#636d0dd96bea5c2564ae2955f03ca118c625c36f"
+  integrity sha512-/I9MbRKGE9NAo6YkwfMgC3onC7nLW15GAqEiEzq/smRok0NlXZE7mqqh3N5FzM/J9f6Cn1GkpIWNS5C92mEprw==
+  dependencies:
+    illusory "^2.0.3"
 
 vary@^1.1.2, vary@~1.1.2:
   version "1.1.2"
