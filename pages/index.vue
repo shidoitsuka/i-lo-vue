@@ -1,7 +1,7 @@
 <template>
   <div class="bg-background text-gray-300">
     <div class="bg-background fixed w-full px-6 p-4 md:text-center">
-      <h1 class="font-bolder nav-text md:text-5xl absolute animate__animated" id="titleIn">s</h1>
+      <h1 class="font-bolder nav-text md:text-4xl absolute animate__animated" id="titleIn">s</h1>
       <!-- <h1 class="font-bolder nav-text md:text-5xl absolute animate__animated" id="titleOut"></h1> -->
       <div class="border-t-4 inline-block pb-3 w-4 md:w-6" />
     </div>
@@ -145,15 +145,19 @@ export default {
         if (this.scrollState == "PASS") return;
         this.scrollState = "PASS";
         // passing description, show standinshd
-
-        titleInEl.innerHTML = "standinshd";
+        titleInEl.classList.add("animate__backOutRight", "fadeOutDown");
       } else {
         if (this.scrollState == "UNPASS") return;
         this.scrollState = "UNPASS";
         // show s
-
-        titleInEl.innerHTML = "s";
+        titleInEl.classList.add("animate__backOutRight", "fadeOutDown");
       }
+      titleInEl.addEventListener('animationend', () => {
+        if (this.scrollState == "PASS") titleInEl.innerHTML = "standinshd";
+        else titleInEl.innerHTML = "s";
+        titleInEl.classList.add("animate__backInLeft");
+        titleInEl.classList.remove("animate__backOutRight", "fadeInDown", "fadeOutDown");
+      });
     },
     openImage(name) {
       this.selectedImage = this.experiences.find(experience => experience.name === name);
@@ -162,8 +166,6 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    // const titleInEl = document.querySelector("#titleIn");
-    // titleInEl.classList.add("text-3xl");
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
