@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-background text-gray-300">
+  <div class="bg-background text-gray-300" v-bind:class="{ 'overflow-y-hidden h-full': $route.name != 'index' }">
     <div class="bg-background fixed w-full px-6 p-4 md:text-center">
       <h1 class="font-bolder nav-text md:text-4xl absolute animate__animated" id="titleIn">s</h1>
       <!-- <h1 class="font-bolder nav-text md:text-5xl absolute animate__animated" id="titleOut"></h1> -->
@@ -86,7 +86,7 @@
         I'm not limited to tech. I believe that <span class="font-bold">everything</span> has its own opportunity.
       </p>
 
-      <div v-for="experience of experiences" :key="experience.name" class="card h-56 mb-5 w-full bg-primary rounded-lg relative cursor-pointer flex items-end md:mb-0" :class="experience.name + '-experience-container'" @click="openImage(experience.name)">
+      <nuxt-link to="/foto" v-for="experience of experiences" :key="experience.id" class="card h-56 mb-5 w-full bg-primary rounded-lg relative cursor-pointer flex items-end md:mb-0" :class="experience.name + '-experience-container'">
         <div class="p-5 z-20 relative title-text">
           <div class="font-semibold text-3xl"></div>
           <p>
@@ -95,14 +95,16 @@
           <div class="border-t border-4 inline-block w-10 mb-1"></div>
         </div>
         <div class="w-full h-full absolute rounded-lg overflow-hidden">
-          <img class="experience-img" :class="experience.name + '-experience'" :src="'/img/experience/' + experience.image" v-shared-element:[`img-${experience.name}`] alt="" />
+          <img class="experience-img" :class="experience.name + '-experience'" :src="'/img/experience/' + experience.image" v-shared-element:[`img-${experience.id}`] alt="" />
         </div>
-      </div>
+      </nuxt-link>
 
-      <div v-if="previewImage" class="fixed overflow-hidden top-0 left-0 h-screen w-screen">
-        <img :src="'/img/experience/' + selectedImage.image" class="w-full" v-shared-element:[`img-${selectedImage.name}`] alt="" />
-      </div>
+    </div>
 
+    <div class="fixed top-0 left-0 w-screen h-screen">
+      <div class="h-2/3 w-full">
+        <nuxt-child />
+      </div>
     </div>
   </div>
 </template>
@@ -118,16 +120,19 @@ export default {
       selectedImage: {},
       experiences: [
         {
+          id: 0,
           name: "first",
           title: "Event organizer, documenter, and photographer for student council orientation 2019",
           image: "1.jpeg"
         },
         {
+          id: 1,
           name: "second",
           title: "SMK Krian 1 representative for Sidoarjo Education and Culture Expo (SIEDUCEX) 2019",
           image: "2.jpeg"
         },
         {
+          id: 2,
           name: "third",
           title: "Student & Teacher exhcange with Thailand 2019",
           image: "3.jpeg"
@@ -196,42 +201,4 @@ export default {
 
 .nav-text
   position: relative
-
-.titleIn
-  height: auto
-  opacity: 1
-
-.titleOut
-  height: 0
-  opacity: 0
-
-@keyframes slideIn
-  0%
-    height: 0
-    opacity: 0
-  100%
-    height: auto
-    opacity: 1
-
-@keyframes slideOut
-  0%
-    height: auto
-    opacity: 1
-  100%
-    height: 0
-    opacity: 0
-
-@keyframes change
-  0%, 12.66%, 100%
-    transform: translate3d(0,0,0)
-  16.66%, 29.32%
-    transform: translate3d(0,-25%,0)
-  33.32%,45.98%
-    transform: translate3d(0,-50%,0)
-  49.98%,62.64%
-    transform: translate3d(0,-75%,0)
-  66.64%,79.3%
-    transform: translate3d(0,-50%,0)
-  83.3%,95.96%
-    transform: translate3d(0,-25%,0)
 </style>
